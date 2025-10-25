@@ -14,18 +14,14 @@ while game_on:
     data = pandas.read_csv("50_states.csv")
     list_states = data.state.to_list()
     #print(list_states)
-
     if answer_state == "Exit":
         missing_states = [state for state in list_states if state not in correct]
-        # for state in list_states:
-        #     if state not in correct:
-        #         missing_states.append(state)
         new_data = pandas.DataFrame(missing_states)
         new_data.to_csv("states_to_learn.csv")
         game_on = False
         break
     if answer_state in correct:
-        print("Bu shtatni yozgan eding.")
+        print("You've already entered this state.")
     elif answer_state in list_states:
         print("you find it")
         turtle = Turtle()
@@ -41,6 +37,7 @@ while game_on:
 if score == 50:
     print("You win!")
     game_on = False
+
 
 
 
